@@ -1,0 +1,23 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+#main-container {
+    height: 500px;
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    align-items: stretch;
+    background-color: springgreen;
+}
+.outer-div {
+    display: flex;
+    height: 100%;
+}
+.inner-div {
+    background-color: pink;
+    /* border:1px solid black; */
+    width: 100%;
+}
