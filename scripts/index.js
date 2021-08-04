@@ -1,4 +1,6 @@
-
+function addBackColorBlack(e) {
+    e.target.style.backgroundColor = "black";
+}
 
 function createGrid(n) {
     const main = document.querySelector('#main-container');
@@ -21,29 +23,40 @@ function createGrid(n) {
         }
     }
     const gridDivs = document.querySelectorAll('.inner-div');
-
     gridDivs.forEach((gridDiv) => {
-        gridDiv.addEventListener('mouseenter',(e) => {
-            e.target.style.backgroundColor = "black"
-        })
+        gridDiv.addEventListener('mouseenter',addBackColorBlack)
     })
 }
-createGrid(100)
+createGrid(10)
 
 function emptyGrid() {
+    //considered using once:true for addEventListner
+    //however it only removes once invoked, which is not ideal here
+    //(might not use all pixels before reseting canvas)
     const main = document.querySelector('#main-container')
-    while (main.hasChildNodes) {
+    const gridDivs = document.querySelectorAll('.inner-div');
+    gridDivs.forEach((gridDiv) => {
+        gridDiv.removeEventListener('mouseenter',addBackColorBlack)
+    })
+    while (main.firstChild) {
+        
         main.firstChild.remove()
     }
+    
+        
 }
 
-
-function reset() {
-    let gridSize = prompt("how big would you like your grid to be?")
-    emptyGrid()
-    createGrid(gridSize)
+function reset(promptText = "how big would you like your grid to be? (1-100)") {
+    let gridSize = Number(prompt(promptText))
+    
+    if ( isNaN(gridSize) || gridSize < 1 || gridSize > 100) {
+        reset("Please enter a valid number between 1 & 100 ^_^")
+    }
+    else {
+        
+        emptyGrid()
+        createGrid(Number(gridSize))
+        
+    }
+    
 }
-
-
-//remove inner div event listener (abstract the function out first)
-//
