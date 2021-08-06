@@ -10,6 +10,13 @@ body {
     justify-content: center;
     align-items: center;
 }
+button {
+    background-color: rgb(243, 124, 26);
+    width: 500px;
+    height: 20px;
+    box-shadow: 0px 1px 3px 1px rgb(164, 74, 74);
+    color: white;
+}
 #main-container {
     height: 500px;
     width: 500px;
