@@ -63,7 +63,7 @@ function emptyGrid() {
         
 }
 
-function reset(promptText = "how big would you like your grid to be? (1-100)\ncancel or 0 to exit without doing anything","0") {
+function reset(promptText = "how big would you like your grid to be? (1-100)\ncancel or 0 to exit without doing anything") {
     let gridSize = Number(prompt(promptText))
     if (gridSize == 0) {
         return;
